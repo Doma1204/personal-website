@@ -101,18 +101,22 @@ html, body {
 }
 
 #aboutMe:hover ~ .slide-bar {
+    margin-top: 0px;
+}
+
+#camp:hover ~ .slide-bar {
     margin-top: 52px;
 }
 
-#redbird:hover ~ .slide-bar {
+#goal:hover ~ .slide-bar {
     margin-top: 104px;
 }
 
-#games:hover ~ .slide-bar {
+#project:hover ~ .slide-bar {
     margin-top: 156px;
 }
 
-#contact:hover ~ .slide-bar {
+#community:hover ~ .slide-bar {
     margin-top: 208px;
 }
 
@@ -133,10 +137,15 @@ html, body {
 }
 
 .sub-topic h1 {
-    font-size: 50px;
+    font-size: 45px;
     font-weight: 10;
     color: cadetblue;
     margin: 0px;
+    margin-bottom: 10px;
+}
+
+.sub-topic p {
+  font-size: 20px;
 }
 
 .line-breaker {

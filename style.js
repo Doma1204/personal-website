@@ -48,11 +48,11 @@ function toggleSidebar() {
     main.width = "100%";
     topBar.height = "70px";
 
-    crossToThreeLine();
-
     menu.marginLeft = "0px";
     // document.getElementById("menu").style.top = "15px";
     isSidebarOpened = false;
+
+    crossToThreeLine();
   }
 }
 
