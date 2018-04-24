@@ -5,6 +5,7 @@ var line3;
 var main;
 var topBar;
 var menu;
+var slideBar;
 
 $(document).ready(function() {
   line1 = document.getElementById("line1").style;
@@ -13,10 +14,11 @@ $(document).ready(function() {
   main = document.getElementById("main").style;
   topBar = document.getElementById("topbar").style;
   menu = document.getElementById("menu").style;
+  // sliderBar = document.getElementById("slide-bar").style;
 
   $("#menu").hover(function() {
-      line2.width = "30px";
-      line3.width = "30px";
+    line2.width = "30px";
+    line3.width = "30px";
   }, function() {
     if (!isSidebarOpened) {
       line2.width = "20px";
@@ -25,6 +27,7 @@ $(document).ready(function() {
   });
 
   $(window).on("resize", isSmallScreen);
+
 });
 
 function toggleSidebar() {
@@ -34,12 +37,7 @@ function toggleSidebar() {
     main.marginTop = "0px";
     topBar.height = "0px";
 
-    line1.transform = "rotate(45deg)";
-    line1.marginTop = "10px";
-    line2.display = "none";
-    line3.transform = "rotate(-45deg)";
-    line3.width = "30px";
-    line3.marginTop = "-9px";
+    threeLineToCross();
 
     menu.marginLeft = "230px";
 
@@ -47,14 +45,10 @@ function toggleSidebar() {
   } else {
     main.marginLeft = "0px";
     main.marginTop = "70px";
+    main.width = "100%";
     topBar.height = "70px";
 
-    line1.transform = "rotate(0deg)";
-    line1.marginTop = "5px";
-    line2.display = "inherit";
-    line3.transform = "rotate(0deg)";
-    line3.width = "30px";
-    line3.marginTop = "0px";
+    crossToThreeLine();
 
     menu.marginLeft = "0px";
     // document.getElementById("menu").style.top = "15px";
@@ -62,18 +56,49 @@ function toggleSidebar() {
   }
 }
 
+function threeLineToCross() {
+  line1.transform = "rotate(45deg)";
+  line1.marginTop = "10px";
+  line2.display = "none";
+  line3.transform = "rotate(-45deg)";
+  line3.width = "30px";
+  line3.marginTop = "-9px";
+}
+
+function crossToThreeLine() {
+  line1.transform = "rotate(0deg)";
+  line1.marginTop = "5px";
+  line2.display = "inherit";
+  line3.transform = "rotate(0deg)";
+  line3.width = "30px";
+  line3.marginTop = "0px";
+  if (!isSidebarOpened) {
+    line2.width = "20px";
+    line3.width = "25px";
+  }
+}
+
 function isSmallScreen() {
+  var width = $(window).width();
+  var smallWidth = width - 300;
   if ($(window).width() < 1000) {
     if (!isSidebarOpened) {
       main.marginLeft = "0px";
       main.marginTop = "70px";
+      main.width = width.toString() + "px";
       topBar.height = "70px";
+    } else {
+
     }
     menu.width = "30px";
   } else {
     main.marginLeft = "300px";
     main.marginTop = "0px";
+    main.width = smallWidth.toString() + "px";
     topBar.height = "0px";
     menu.width = "0px";
+    isSidebarOpened = false;
+    menu.marginLeft = "0px"
+    crossToThreeLine();
   }
 }
