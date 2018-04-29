@@ -31,6 +31,7 @@ $(document).ready(function() {
 });
 
 function toggleSidebar() {
+  if ($(window).width() > 1000) return
   if (!isSidebarOpened) {
     main.marginLeft = "300px";
     main.width = "100%";

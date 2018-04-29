@@ -112,11 +112,11 @@ html, body {
     margin-top: 104px;
 }
 
-#project:hover ~ .slide-bar {
+#community:hover ~ .slide-bar {
     margin-top: 156px;
 }
 
-#community:hover ~ .slide-bar {
+#project:hover ~ .slide-bar {
     margin-top: 208px;
 }
 
@@ -150,8 +150,8 @@ html, body {
 
 .line-breaker {
   background-color: cadetblue;
-  height: 5px;
-  width: 100px;
+  height: 3px;
+  width: 300px;
   border-radius: 100px;
 }
 
